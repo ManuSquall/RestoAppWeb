@@ -1,0 +1,51 @@
+﻿@page
+@model RestoAppWeb.Pages.Commandes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    //Layout = "~/Pages/_ViewImports.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Commande</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Commande.Id" />
+            <div class="form-group">
+                <label asp-for="Commande.Numero" class="control-label"></label>
+                <input asp-for="Commande.Numero" class="form-control" />
+                <span asp-validation-for="Commande.Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commande.ModePayement" class="control-label"></label>
+                <input asp-for="Commande.ModePayement" class="form-control" />
+                <span asp-validation-for="Commande.ModePayement" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commande.Total" class="control-label"></label>
+                <input asp-for="Commande.Total" class="form-control" />
+                <span asp-validation-for="Commande.Total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commande.ClientId" class="control-label"></label>
+                <select asp-for="Commande.ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>
+                <span asp-validation-for="Commande.ClientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
